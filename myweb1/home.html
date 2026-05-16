@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>敦煌博物馆 - 首页</title>
+    <link rel="stylesheet" href="css.css">
+    <style>
+        .hero-desc {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 15px 0 25px;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+        .section-desc {
+            text-align: center;
+            max-width: 800px;
+            margin: -10px auto 30px;
+            color: #666;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">敦煌博物馆</div>
+        <nav>
+            <ul>
+                <li><a href="home.html" class="active">首页</a></li>
+                <li><a href="#">参观导览</a></li>
+                <li><a href="#">文物文化</a></li>
+                <li><a href="#">馆藏文物</a></li>
+                <li><a href="#">数字敦煌</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <div class="hero-title">丝路明珠 · 魅力敦煌</div>
+        <p class="hero-desc">
+            穿越千年风沙，邂逅丝路文明。敦煌，以壁画为卷，以彩塑为韵，
+            镌刻着东西方文化交融的不朽传奇。
+        </p>
+        <a href="article.html" class="hero-btn">品读敦煌文化</a>
+    </section>
+
+    <section class="treasures-section">
+        <h2 class="section-title">镇馆之宝</h2>
+        <p class="section-desc">
+            每一件文物，都是历史的回音。它们穿越千年时光，
+            静静诉说着敦煌曾经的辉煌与神韵，见证丝路文明的璀璨与交融。
+        </p>
+
+        <div class="treasures-grid">
+            <div class="treasure-card">
+                <img src="images/3.jpg" alt="飞天壁画">
+                <h3>唐代飞天壁画</h3>
+                <p>敦煌艺术巅峰之作，轻盈飘逸，意境空灵</p>
+            </div>
+            <div class="treasure-card">
+                <img src="images/4.jpg" alt="三彩骆驼">
+                <h3>三彩骆驼载乐俑</h3>
+                <p>丝路文化交融的历史见证</p>
+            </div>
+            <div class="treasure-card">
+                <img src="images/5.jpg" alt="龙凤铜镜">
+                <h3>唐代龙凤纹铜镜</h3>
+                <p>工艺精湛，纹饰华美，盛唐气象</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="collection-section">
+        <h2 class="section-title">馆藏文物</h2>
+        <p class="section-desc">
+            陶器、铜器、石器、丝绸……千余件珍贵文物汇聚于此，
+            构成一幅立体的丝路历史长卷，再现敦煌千年风华。
+        </p>
+
+        <div class="collection-grid">
+            <div class="collection-item"><img src="images/6.jpg" alt="文物"></div>
+            <div class="collection-item"><img src="images/7.jpg" alt="文物"></div>
+            <div class="collection-item"><img src="images/8.jpg" alt="文物"></div>
+            <div class="collection-item"><img src="images/9.jpg" alt="文物"></div>
+            <div class="collection-item"><img src="images/10.jpg" alt="文物"></div>
+            <div class="collection-item"><img src="images/11.jpg" alt="文物"></div>
+        </div>
+    </section>
+
+    <footer>
+    <p>敦煌文化 | 千年传承 · 丝路文明</p>
+    <p>地址：甘肃省敦煌市文博东路 | 电话：0937-8888888</p>
+    <p>© 2026 敦煌博物馆 版权所有</p>
+</footer>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const grid = document.querySelector('.collection-grid');
+
+    function checkScroll() {
+      const rect = grid.getBoundingClientRect();
+      const isVisible = rect.top < window.innerHeight * 0.85;
+      if (isVisible) {
+        grid.classList.add('visible');
+      }
+    }
+
+    window.addEventListener('scroll', checkScroll);
+    checkScroll();
+  });
+</script>
+</body>
+</html>
