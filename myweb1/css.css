@@ -1,0 +1,335 @@
+/* 全局重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ================= 自定义字体（满足作业要求） ================= */
+@font-face {
+    font-family: "DunHuangFont";
+    src: local("KaiTi"), local("STKaiti"), local("SimSun");
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* ================= 全局样式 ================= */
+body {
+    font-family: "Microsoft YaHei", sans-serif;
+    background-color: #f0e8d9;
+    color: #333;
+    line-height: 1.7;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* ================= 引导页样式 ================= */
+/* 只给引导页标题单独定义新字体 */
+@font-face {
+    font-family: "QuanHengFont";
+    src: url("fonts/QuanHengDuLiang-v0.1.ttf.otf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+.splash-page {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(rgba(168, 60, 50, 0.2), rgba(168, 60, 50, 0.2)),
+                url('images/1.jpg') center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+    opacity: 0;
+    animation: bgFadeIn 1.6s ease forwards;
+}
+
+.splash-title {
+    font-family: "QuanHengFont" !important;
+    font-size: 4.2rem;
+    margin-bottom: 12px;
+    letter-spacing: 3px;
+
+    /* 标题动画 */
+    opacity: 0;
+    animation: textFade 1s ease 0.8s forwards;
+}
+
+.splash-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    opacity: 0.9;
+
+    /* 副标题动画 */
+    opacity: 0;
+    animation: textFade 1s ease 1.1s forwards;
+}
+
+.enter-btn {
+    padding: 12px 36px;
+    border: 2px solid #fff;
+    background: transparent;
+    color: #fff;
+    font-family: "DunHuangFont", serif;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 4px;
+
+    /* 按钮动画 */
+    opacity: 0;
+    animation: textFade 1s ease 1.4s forwards;
+}
+
+.enter-btn:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+/* ================= 头部导航 ================= */
+header {
+    background-color: #a83c32;
+    color: white;
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 99;
+    height: 70px;
+}
+
+.logo {
+    font-family: "DunHuangFont", serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+nav ul {
+    display: flex;
+    gap: 2rem;
+}
+
+nav a {
+    color: white;
+    font-size: 0.95rem;
+    transition: 0.3s;
+}
+
+nav a.active, nav a:hover {
+    border-bottom: 2px solid #f0e8d9;
+    padding-bottom: 4px;
+}
+
+/* ================= 首页banner ================= */
+.hero-section {
+    height: 60vh;
+    padding-top: 70px;
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+                url('images/2.jpg') center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+.hero-title {
+    font-family: "DunHuangFont", serif;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.hero-btn {
+    padding: 10px 24px;
+    background: #a83c32;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.hero-btn:hover {
+    opacity: 0.9;
+}
+
+/* ================= 内容区块 ================= */
+.treasures-section, .collection-section {
+    padding: 3rem 5%;
+}
+
+.section-title {
+    font-family: "DunHuangFont", serif;
+    color: #a83c32;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+}
+
+/* 网格布局 */
+.treasures-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.treasure-card {
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    text-align: center;
+}
+
+.treasure-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 12px;
+}
+
+.collection-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+}
+
+.collection-item {
+    background: white;
+    padding: 10px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* 给每个卡片固定宽高，保证所有容器大小一致 */
+    width: 100%;
+    aspect-ratio: 3 / 4; /* 正方形容器，宽高1:1 */
+}
+
+/* 新增：给卡片里的图片设置统一尺寸 */
+.collection-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 关键：让图片按容器裁剪，不变形 */
+    border-radius: 2px;
+}
+
+/* ================= 文章页 ================= */
+.article-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 5%;
+}
+
+.article-title {
+    font-family: "DunHuangFont", serif;
+    color: #a83c32;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.article-meta {
+    color: #666;
+    font-size: 0.9rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 1.5rem;
+}
+
+.article-content p {
+    margin-bottom: 1.2rem;
+    text-indent: 2em;
+}
+
+.article-content img {
+    margin: 1.5rem auto;
+    border-radius: 6px;
+}
+
+/* ==================== 图片悬浮交互效果（高级大气） ==================== */
+.treasure-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.treasure-card img:hover {
+  transform: scale(1.04);
+  transition: transform 0.3s ease;
+}
+
+.collection-item img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+/* 让卡片默认更平滑 */
+.treasure-card,
+.collection-item img {
+  transition: all 0.3s ease;
+}
+
+/* ================= 新版简洁页脚 ================= */
+footer {
+    background-color: #a83c32;
+    color: white;
+    padding: 2rem 5%;
+    text-align: center;
+    margin-top: 3rem;
+    font-family: "DunHuangFont", serif;
+}
+
+footer p {
+    margin: 6px 0;
+    font-size: 0.95rem;
+    opacity: 0.95;
+}
+
+/* 馆藏文物区域滑入动画 */
+.collection-grid {
+  opacity: 0;
+  transform: translateX(-80px);
+  transition: all 1.2s ease-out;
+}
+
+.collection-grid.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+/* 背景渐入动画 */
+@keyframes bgFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes textFade {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

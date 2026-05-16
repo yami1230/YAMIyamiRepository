@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>敦煌壁画 - 文章详情</title>
+    <link rel="stylesheet" href="css.css">
+    <style>
+        /* 左文右图布局 + 艺术感优化 */
+        .article-container {
+            max-width: 1200px; /* 加宽容器，避免太空 */
+            margin: 3rem auto;
+            padding: 0 5%;
+        }
+
+        /* 左文右图核心布局 */
+        .article-content {
+            display: grid;
+            grid-template-columns: 55% 42%; /* 文字占比略多，更协调 */
+            gap: 3%; /* 图文间距，不拥挤 */
+            align-items: flex-start; /* 文字顶部与图片顶部对齐 */
+        }
+
+        /* 文章纯淡入动画：无位移，只从透明变清晰 */
+        .article-content p {
+            opacity: 0;
+            animation: fadeIn 0.8s ease forwards;
+            margin-bottom: 1.8rem; /* 增加段落间距，更舒展 */
+            line-height: 1.8; /* 行高优化，阅读更舒适 */
+            font-size: 1.05rem; /* 微调字号，更大气 */
+        }
+        .article-content p:nth-child(1) { animation-delay: 0.2s; }
+        .article-content p:nth-child(2) { animation-delay: 0.4s; }
+        .article-content p:nth-child(3) { animation-delay: 0.6s; }
+        .article-content p:nth-child(4) { animation-delay: 0.8s; }
+        .article-content p:nth-child(5) { animation-delay: 1.0s; }
+        .article-content p:nth-child(6) { animation-delay: 1.2s; }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* 图片样式优化（艺术感+交互） */
+        .article-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px; /* 圆角更柔和 */
+            box-shadow: 0 8px 20px rgba(168, 60, 50, 0.15); /* 敦煌红调阴影，贴合主题 */
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            margin: 0; /* 取消原有居中margin，贴合右图布局 */
+        }
+        .article-content img:hover {
+            transform: scale(1.03); /* 轻微放大，不夸张 */
+            box-shadow: 0 12px 25px rgba(168, 60, 50, 0.2); /* 悬浮加深阴影 */
+        }
+
+        /* 标题、元信息优化，更有层次 */
+        .article-title {
+            font-family: "DunHuangFont", serif;
+            color: #a83c32;
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            text-align: left;
+            padding-bottom: 0.8rem;
+            border-bottom: 2px solid rgba(168, 60, 50, 0.2); /* 红色细边框，提升高级感 */
+        }
+        .article-meta {
+            color: #666;
+            font-size: 0.95rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 2rem;
+        }
+
+        /* 适配小屏幕，避免错乱 */
+        @media (max-width: 768px) {
+            .article-content {
+                grid-template-columns: 1fr; /* 小屏幕恢复上下布局 */
+            }
+            .article-content img {
+                margin: 1.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 头部 -->
+    <header>
+        <div class="logo">敦煌博物馆</div>
+        <nav>
+            <ul>
+                <li><a href="home.html">首页</a></li>
+                <li><a href="article.html" class="active">文章详情</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 文章内容 -->
+    <div class="article-container">
+        <h1 class="article-title">敦煌壁画：丝绸之路上的艺术瑰宝</h1>
+        <div class="article-meta">发布时间：2026-03-29 | 来源：敦煌文化研究中心</div>
+        <div class="article-content">
+            <!-- 左侧文字 -->
+            <div>
+                <p>敦煌，地处河西走廊最西端，自古便是中原通往西域的咽喉要道，亦是丝绸之路上文明交汇的核心枢纽。在这片戈壁荒漠之中，坐落着举世闻名的莫高窟，其内绵延千年的壁画艺术，如同一部镌刻在崖壁上的文明史诗，震撼着每一位来访者的心灵。</p>
+                <p>敦煌壁画的营造历史跨越了十六国、北魏、西魏、北周、隋、唐、五代、宋、西夏、元等十余个朝代，历时长达一千六百余年。在漫长岁月中，无数工匠与画师以崖为纸，以矿为色，一笔一画构筑起这个世界上规模最大、延续时间最长、题材内容最丰富的佛教艺术圣地。</p>
+                <p>壁画题材包罗万象，从佛本生故事、佛传故事、经变画，到飞天、伎乐、供养人、山水建筑，再到商贸往来、农耕狩猎、民俗节庆，几乎涵盖了古代社会生活的方方面面。其中，飞天更是敦煌艺术最具代表性的符号，她们不借双翼，不生云雾，仅凭飘带与身姿，便在壁间轻盈流转，尽显东方美学的空灵与浪漫。</p>
+                <p>在艺术风格上，敦煌壁画融合了中原传统绘画技法、印度佛教艺术范式以及希腊、波斯等外来文化元素，形成了兼收并蓄、瑰丽多姿的独特面貌。早期画风粗犷雄浑，中原韵味渐浓；隋唐时期则达到鼎盛，色彩富丽堂皇，线条流畅婉转，人物丰腴典雅，尽显盛世气象。</p>
+                <p>敦煌壁画不仅是视觉艺术的巅峰，更是珍贵的历史文献。壁画中保留的服饰、乐舞、建筑、科技、商贸等图像资料，为研究古代中外交流、民族融合、社会生活提供了无可替代的实物佐证，被誉为“墙壁上的博物馆”与“一部活的丝路百科全书”。</p>
+                <p>历经千年风沙与岁月侵蚀，敦煌壁画虽已褪去部分鲜艳色彩，但其精神内核依旧熠熠生辉。如今，随着数字化技术的发展，千年壁画得以高清留存、云端再现，跨越山海与时空，向世界讲述着古老东方的艺术传奇与文明力量。</p>
+            </div>
+            <!-- 右侧图片 -->
+            <img src="images/12.jpg" alt="敦煌壁画">
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+<footer>
+    <p>敦煌文化 | 千年传承 · 丝路文明</p>
+    <p>地址：甘肃省敦煌市文博东路 | 电话：0937-8888888</p>
+    <p>© 2026 敦煌博物馆 版权所有</p>
+</footer>
+</body>
+</html>
